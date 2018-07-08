@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-9">
+              <h6 class="panel-title">The Entire Contact List</h6>
+          </div>
+          <div class="col-xs-3">
+            <div class="row" style="margin-left:20%;">
+                <button type="button" class="btn btn-primary" style="margin-left:15px;" (click)="goToAddProduct()">Add Contact</button>
+                <button type="button" class="btn btn-primary" style="margin-left:15px;" (click)="goToBack()">Back</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+   <div class="panel-body">
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Picture</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of employeeContact">
+                <td><a [routerLink]="['/CONTACTLIST',contact.id]">{{contact.name}}</a></td>
+                <td>{{contact.email}}</td>
+                <td><img *ngIf="contact" [src]="contact.image"  width="50" height="50"></td>
+                <td><button type="button" class="btn btn-primary" style="margin-left:5px;" (click)="deleteContact(contact.id)">DELETE</button></td>
+            </tr>
+          </tbody>
+        </table>
+   </div>
+</div>
