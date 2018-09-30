@@ -13,6 +13,7 @@ import { ContactsummeryListComponent } from './contactsummery-list/contactsummer
 import { HomeComponent } from './home/home.component';
 import { AddcontactComponent } from './addcontact/addcontact.component';
 import { UpdateDetailComponent } from './update-detail/update-detail.component';
+import { LoadingSpinnerComponent } from './loader-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -24,12 +25,13 @@ import { UpdateDetailComponent } from './update-detail/update-detail.component';
     HomeComponent,
     AddcontactComponent,
     UpdateDetailComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [ContactServiceService],
   bootstrap: [AppComponent]

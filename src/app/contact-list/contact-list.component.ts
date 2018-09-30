@@ -17,6 +17,7 @@ export class ContactListComponent implements OnInit {
 
   employeeContact:Icontact[];
   statusMessage:string;
+  showSpinner:boolean=true;
   private headers=new Headers({'Content-Type':'application/json'});
   contactsUrl = "http://localhost:3000/contacts";
   constructor(private http:Http, private contactService:ContactServiceService,private router:Router) { }
@@ -26,7 +27,10 @@ export class ContactListComponent implements OnInit {
     .subscribe((contactData)=>this.employeeContact=contactData,
     (error)=>{
       this.statusMessage="Problems with service,please try after sometime";
-    })
+      this.showSpinner=false;
+    });
+    this.contactService.getAllContacts()
+      .subscribe(()=>this.showSpinner=false);
   }
   goToAddProduct()
   {

@@ -6,13 +6,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Response } from '@angular/http';
 
-const contact:Icontact[]=[];
+ //contact:Icontact[];
 @Injectable()
 export class ContactServiceService {
+  contact:Icontact[];
   contactsUrl = "http://localhost:3000/contacts";
   constructor(private _http:Http) { }
 
-  getAllContacts():Observable<Icontact[]>{
+  public getAllContacts():Observable<Icontact[]>{
     return this._http.get(this.contactsUrl)
     .map((response:Response)=><Icontact[]>response.json())
     .catch(this.handleError);   
